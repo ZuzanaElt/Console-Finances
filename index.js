@@ -87,47 +87,77 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+console.log("Financial Analysis");
+console.log("-----------------------------");
+
 let totalNumberMonths= (finances.length);
- console.log ( "Total Months: " + totalNumberMonths);
+console.log ( "Total Months: " + totalNumberMonths);
 
  //calculating net profit/loss over the whole period
- let totalProfLoss=0;
+ let totalNetAmount=0;
 
  for (let i=0; i<totalNumberMonths; i++)
   { 
-    totalProfLoss+=finances[i][1];
+    totalNetAmount+=finances[i][1];
   }
- console.log ("Total of profit and loss is: $" +totalProfLoss);
+ console.log ("Total: $" +totalNetAmount);
 
- //calculating average profit and loss in the whole period
- let averageProfLoss=Math.round(totalProfLoss/totalNumberMonths);
- console.log("Average profit/loss over the whole period: $"+ averageProfLoss);
+
+ //calculating average profit and loss for the whole period
+ let averageProfLoss=Math.round(totalNetAmount/totalNumberMonths);
+ console.log("Average profit and loss: $"+ averageProfLoss);
 
  
 //creating array with values calculated from differences between months
-let diffbetmonths = [0];
 let arrayaddition=0;
-let newArray=[];
+let arrayDifference=[];
 
 finances[0].push("0");
 
 for( let i=1; i<totalNumberMonths; i++){
   let arrayaddition=((finances[i][1])-(finances[i-1][1]));
-//adding calculated value to end of finances array is:
+
+  console.log("TESTING ARRAYADDITION values"+ arrayaddition);
+
+//adding calculated value to end of finances array:
 finances[i].push(arrayaddition);
 
-//creating new array to collect the results in
-//newArray.push(arrayaddition);
+//adding to the new ARRAY arrayDifference:
+arrayDifference.push(arrayaddition);
 }
+
+console.log ("TESTarray difference TEST" + arrayDifference);
+
+//find the average of Differences in arrayDifference
+let sumDif= 0;
+for (let i=0; i<totalNumberMonths; i++){
+  sumDif = arrayDifference[i];
+}
+
+ console.log( "Differences sum difTEST" + sumDif);
 
 //find and display the greatest increase and the greatest decrease in profit
 
-//let greatestIncrease = Math.max(...newArray);
-//let greatestDecrease= Math.min(...newArray);
+let greatestIncrease = Math.max(...arrayDifference);
+let greatestDecrease= Math.min(...arrayDifference);
 
-//console.log("Greatest increase in Profits: " +greatestIncrease);
-//console.log("Greatest decrease in Profits: " +greatestDecrease);
+//comparing/finding max and min in finances
 
-//console.log(newArray);
 
-console.log(finances);
+ for (let i=0 ; i<totalNumberMonths; i++)
+  {
+   if (greatestIncrease==finances[i][2]){
+ 
+  console.log ("Greatest increase in Profits:  " + finances[i][0] + " ($-"+ finances[i][2] + ")");
+   }
+ }
+   
+ for (let i=0 ; i<totalNumberMonths; i++)
+ {
+  if (greatestDecrease==finances[i][2]){
+
+ console.log ("Greatest decrease in Profits:  " + finances[i][0] + " ($-"+ finances[i][2] + ")");
+  }
+}
+
+console.log ("```")
