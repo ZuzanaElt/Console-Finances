@@ -26,7 +26,18 @@ This challenge consists of a number of tasks
 
    [screenshot of result](images/financial%20analysis%20result.png)
 
+# Code to remember
 
+- rounding number to 2 decimals : let averChange=Math.round((differBetMonths/(finances.length-1))*100)/100;
+- pushing element to end of array: finances[0].push("0");
+    push in for function:
+    for (let i=0; i <totalNumberMonths; i++){
+        finances[i].push(arrayCollectedDifferences[i]);}
+- finding max an d mix in an array:
+     let greatestIncrease = Math.max(...arrayCollectedDifferences);
+ let greatestDecrease = Math.min(...arrayCollectedDifferences);
+
+ 
 # Conclusion
 I am sure I did not find the shortest and most beautiful code to solve this challenge, but I am happy that it works. It involved a lot of thinking and trying to find a working process how to approach logical challenges. 
 The introduction to Java Script is tricky but I appreciate the pace which allows me to catch up at the end of the week.
