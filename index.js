@@ -117,8 +117,8 @@ console.log ( "Total Months: " + totalNumberMonths);
      differBetMonths += ((finances[i][1])-(finances[i-1][1]));
  }
 
-//calculating average of change
-let averChange=Math.round(differBetMonths/totalNumberMonths);
+//calculating average of change (with number of months minus one month)
+let averChange=Math.round(differBetMonths/(finances.length-1));
 
 console.log ("Average change: $" + averChange);
 
