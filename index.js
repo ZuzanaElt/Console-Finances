@@ -96,8 +96,7 @@ console.log ( "Total Months: " + totalNumberMonths);
  //calculating net profit/loss over the whole period
  let totalNetAmount=0;
 
- for (let i=0; i<totalNumberMonths; i++)
-  { 
+ for (let i=0; i<totalNumberMonths; i++){ 
     totalNetAmount+=finances[i][1];
   }
  console.log ("Total: $" +totalNetAmount);
@@ -115,45 +114,40 @@ console.log ( "Total Months: " + totalNumberMonths);
  
 
  for (let i=1; i<totalNumberMonths; i++){
-  differBetMonths += ((finances[i][1])-(finances[i-1][1]));
+     differBetMonths += ((finances[i][1])-(finances[i-1][1]));
  }
 
-//calculating avarage of change
-let averChange=Math.round(differBetMonths/totalNumberMonths)
+//calculating average of change
+let averChange=Math.round(differBetMonths/totalNumberMonths);
 
-console.log ("Average change: $" + averChange)
+console.log ("Average change: $" + averChange);
 
 //array with all the differences values:
 let arrayCollectedDifferences=[];
 
 for (let i=1; i<totalNumberMonths; i++){
-  arrayCollectedDifferences[i]=((finances[i][1])-(finances[i-1][1])); }
- // console.log("ARRAY WITH DIFFERENCEs: " + arrayCollectedDifferences)
-
+  arrayCollectedDifferences.push((finances[i][1])-(finances[i-1][1])); }
+ 
+ 
 
 //adding calculated value to end of finances array to create array month[value]+[difference with past month]:
 for (let i=0; i<totalNumberMonths; i++){
 finances[i].push(arrayCollectedDifferences[i]);}
-//console.log("FINANCEStesttesttest +" + finances)
+
 
  //find the greatest increase and the greatest decrease in profit
 
  let greatestIncrease = Math.max(...arrayCollectedDifferences);
- console.log(greatestIncrease);
- let greatestDecrease= Math.min(...arrayCollectedDifferences);
+ let greatestDecrease = Math.min(...arrayCollectedDifferences);
 
+ for (let i=0 ; i<totalNumberMonths; i++) {
+      if (greatestIncrease==finances[i][2]){
+          console.log ("Greatest increase in Profits:  " + finances[i][0] + " ($"+ finances[i][2] + ")");
+         }
 
+      if (greatestDecrease==finances[i][2]){
+          console.log ("Greatest decrease in Profits:  " + finances[i][0] + " ($"+ finances[i][2] + ")");
+          }
+  }
  
- for (let i=0 ; i<totalNumberMonths; i++) 
- {
-  if (greatestIncrease==finances[i][2]){
-  console.log ("Greatest increase in Profits:  " + finances[i][0] + " ($-"+ finances[i][2] + ")");
-  }
- }
- for (let i=0 ; i<totalNumberMonths; i++)
- {
-  if (greatestDecrease==finances[i][2]){
-  console.log ("Greatest decrease in Profits:  " + finances[i][0] + " ($-"+ finances[i][2] + ")");
-  }
-  }
   console.log ("```")
