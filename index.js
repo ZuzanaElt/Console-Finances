@@ -132,7 +132,7 @@ for (let i=1; i<totalNumberMonths; i++){
 
 //adding calculated value to end of finances array to create array month[value]+[difference with past month]:
 for (let i=0; i<totalNumberMonths; i++){
-finances[i].push(arrayCollectedDifferences[i]);}
+finances[i].push(arrayCollectedDifferences[i-1]);} /*correction following grading from i to 1-1*/
 
 
  //find the greatest increase and the greatest decrease in profit
