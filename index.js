@@ -151,3 +151,7 @@ finances[i].push(arrayCollectedDifferences[i-1]);} /*correction following gradin
   }
  
   console.log ("```")
+
+
+
+  
